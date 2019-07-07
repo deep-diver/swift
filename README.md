@@ -4,24 +4,27 @@
 
 # Swift for TensorFlow
 
-> Swift for TensorFlow: No boundaries.
+> TensorFlow를 위한 Swift: 경계선이 없다.
 
-Swift for TensorFlow is a next-generation platform for machine learning,
-incorporating the latest research across machine learning, compilers,
-differentiable programming, systems design, and beyond. This is an early-stage
-project: it is not feature-complete nor production-ready, but it is ready for
-_pioneers_ to try in projects, give feedback, and help shape the future!
+TensorFlow를 위한 Swift는 머신러닝, 컴파일러, Differentiable 프로그래밍, 시스템 디자인, 
+그 이상의 것들에 대한 가장 최신 연구 내용을 결합시키는 머신러닝을 위한 차세대 플랫폼 입니다.
+초기 단계의 프로젝트로: 피처가 완전하지 않고, 상용화가 준비되지 않았지만, 선구자들로 하여금
+프로젝트를 시도해볼 수 있는 수준입니다. 따라서, 피드백을 주시고 미래를 만들어나가는데 도움을 주세요!
 
-The Swift for TensorFlow project is currently focusing on 2 kinds of users:
+TensorFlow를 위한 Swift 프로젝트는 현재 두 종류의 사용자를 대상으로 합니다:
 
-1. **Advanced ML researchers** who are limited by current ML frameworks. Swift
+1. **고급 머신러닝 연구자** 현재의 머신러닝 프레임워크들에 제한을 느끼는 분들 입니다. 
+   TensorFlow를 위한 Swift의 이점은 현대의 다목적 언어와 매끄럽게 통합되어 더욱 
+   동적 이면서도 세련된 모델들을 가능하게 해 준다는 것입니다. 
+
+who are limited by current ML frameworks. Swift
    for TensorFlow's advantages include a seamless integration with a modern
    general-purpose language, allowing for more dynamic and sophisticated models.
    Fast abstractions can be developed "in user-space" (as opposed to in C/C++
    aka "framework-space"), resulting in modular APIs that can be easily
    customized.
 
-2. **ML learners** who are just getting started with machine learning. Thanks to
+2. **머신러닝 학습자** who are just getting started with machine learning. Thanks to
    Swift's support for quality tooling (e.g. context-aware autocomplete), Swift
    for TensorFlow can be one of the most productive ways to get started learning
    the fundamentals of machine learning.
