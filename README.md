@@ -82,7 +82,7 @@ struct Model: Differentiable {
     }
 }
 
-// `Differentiable.gradient(at:in:)`를 사용하여 미분 하기.
+// `Differentiable.gradient(at:in:)` 를 사용하여 미분 하기.
 let model = Model(w: 4.0, b: 3.0)
 let (𝛁model, 𝛁input) = model.gradient(at: 2.0) { model, input in
     model.applied(to: input)
