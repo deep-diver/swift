@@ -41,10 +41,10 @@ TensorFlow를 위한 Swift 프로젝트는 현재 두 종류의 사용자를 대
 
 튜토리얼 | 마지막 업데이트 시간 |
 -------- | ------------ |
-[Swift 투어](https://colab.research.google.com/github/tensorflow/swift/blob/master/docs/site/tutorials/a_swift_tour.ipynb) | 2019 3월
-[Python과의 상호 운용](https://colab.research.google.com/github/tensorflow/swift/blob/master/docs/site/tutorials/python_interoperability.ipynb) | 2019 3월
-[사용자가 정의하는 Differentiation](https://colab.research.google.com/github/tensorflow/swift/blob/master/docs/site/tutorials/custom_differentiation.ipynb) | 2019 3월
-[모델 학습의 단계적 설명](https://colab.research.google.com/github/tensorflow/swift/blob/master/docs/site/tutorials/model_training_walkthrough.ipynb) | 2019 3월
+[Swift 투어](https://colab.research.google.com/github/tensorflow/swift/blob/master/docs/site/tutorials/a_swift_tour.ipynb) | 2019년 3월
+[Python과의 상호 운용](https://colab.research.google.com/github/tensorflow/swift/blob/master/docs/site/tutorials/python_interoperability.ipynb) | 2019년 3월
+[사용자가 정의하는 Differentiation](https://colab.research.google.com/github/tensorflow/swift/blob/master/docs/site/tutorials/custom_differentiation.ipynb) | 2019년 3월
+[모델 학습의 단계적 설명](https://colab.research.google.com/github/tensorflow/swift/blob/master/docs/site/tutorials/model_training_walkthrough.ipynb) | 2019년 3월
 [가공되지 않은 TensorFlow 연산자들](https://colab.research.google.com/github/tensorflow/swift/blob/master/docs/site/tutorials/raw_tensorflow_operators.ipynb) | 2019 3월
 
 ### 리소스 목록
