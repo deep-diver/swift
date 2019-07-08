@@ -21,7 +21,7 @@ TensorFlow를 위한 Swift 프로젝트는 현재 두 종류의 사용자를 대
 
 2. **머신러닝 학습자** 로, 머신러닝을 이제 막 시작하신 분들 입니다. Swift의 
    품질 도구 (컨텍스트-인지 자동완성)으 지원 덕분에, TensorFlow를 위한 Swift는
-   머신러징의 기초를 배우는 시작점으로써 가장 생산적인 방법 중 하나일 ㅅ 있습니다.
+   머신러징의 기초를 배우는 시작점으로써 가장 생산적인 방법 중 하나일 수 있습니다.
 
 ## 시작 해 보기
 
@@ -45,7 +45,7 @@ TensorFlow를 위한 Swift 프로젝트는 현재 두 종류의 사용자를 대
 [Python과의 상호 운용](https://colab.research.google.com/github/tensorflow/swift/blob/master/docs/site/tutorials/python_interoperability.ipynb) | 2019년 3월
 [사용자가 정의하는 Differentiation](https://colab.research.google.com/github/tensorflow/swift/blob/master/docs/site/tutorials/custom_differentiation.ipynb) | 2019년 3월
 [모델 학습의 단계적 설명](https://colab.research.google.com/github/tensorflow/swift/blob/master/docs/site/tutorials/model_training_walkthrough.ipynb) | 2019년 3월
-[가공되지 않은 TensorFlow 연산자들](https://colab.research.google.com/github/tensorflow/swift/blob/master/docs/site/tutorials/raw_tensorflow_operators.ipynb) | 2019 3월
+[가공되지 않은 TensorFlow 연산자들](https://colab.research.google.com/github/tensorflow/swift/blob/master/docs/site/tutorials/raw_tensorflow_operators.ipynb) | 2019년 3월
 
 ### 리소스 목록
 
