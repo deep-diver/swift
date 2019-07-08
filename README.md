@@ -8,23 +8,80 @@
 
 TensorFlow를 위한 Swift는 머신러닝, 컴파일러, Differentiable 프로그래밍, 시스템 디자인, 
 그 이상의 것들에 대한 가장 최신 연구 내용을 결합시키는 머신러닝을 위한 차세대 플랫폼 입니다.
-초기 단계의 프로젝트로: 피처가 완전하지 않고, 상용화가 준비되지 않았지만, 선구자들로 하여금
+이것은 초기 단계의 프로젝트 입니다: 피처가 완전하지 않고, 상용화가 준비되지 않았지만, 선구자들로 하여금
 프로젝트를 시도해볼 수 있는 수준입니다. 따라서, 피드백을 주시고 미래를 만들어나가는데 도움을 주세요!
 
 TensorFlow를 위한 Swift 프로젝트는 현재 두 종류의 사용자를 대상으로 합니다:
 
-1. **고급 머신러닝 연구자** 현재의 머신러닝 프레임워크들에 제한을 느끼는 분들 입니다. 
-   TensorFlow를 위한 Swift의 이점은 현대의 다목적 언어와 매끄럽게 통합되어 더욱 
-   동적 이면서도 세련된 모델들을 가능하게 해 준다는 것입니다. 
+1. **고급 머신러닝 연구자** 로, 현재의 머신러닝 프레임워크들에 한계를 느끼는 분들 입니다. 
+   TensorFlow를 위한 Swift는 현대적인 다목적 언어와의 매끄러운 통합을 통하여
+   보다 동적이면서도 보다 섬세한 모델을 만들 수 있다는 이점을 가지고 있습니다.
+   빠른 추상화는 "사용자-공간에서"(C/C++의 "프레임워크-공간"과 반대 개념) 개발될 수 있는데,
+   이는 손쉽게 사용자가 정의 가능한 모듈식의 APIs라느 결과를 가져오게 됩니다.
 
-who are limited by current ML frameworks. Swift
+2. **머신러닝 학습자** 로, 머신러닝을 이제 막 시작하신 분들 입니다. Swift의 
+   품질 도구 (컨텍스트-인지 자동완성)으 지원 덕분에, TensorFlow를 위한 Swift는
+   머신러징의 기초를 배우는 시작점으로써 가장 생산적인 방법 중 하나일 ㅅ 있습니다.
+
+## 시작 해 보기
+
+### TensorFlow를 위한 Swift를 사용해 보기
+
+- **Google Colaboratory**: TensorFlow를 위한 Swift를 여러분의 브러우저에 시도 해 보기 위한 가장 빠른 방법 입니다.
+  단순히 [튜토리얼](#tutorials-) 를 열거나, [빈
+   노트북](https://colab.research.google.com/github/tensorflow/swift/blob/master/notebooks/blank_swift.ipynb)!로 시작해 보시기 바랍니다. 더 많은 내용은 [사용법 가이드](Usage.md)을 읽어 보시기 바랍니다.
+
+- **로컬 환경에 설치하는 방법**: [미리 빌드된, TensorFlow를 위한 Swift 패키지를 다운로드](Installation.md) 하실 수 있습니다.
+  설치 완료 후, [단계별 설명](Usage.md)을 따라하셔서 Swift 스크립트를 여러분의 컴퓨터에서 빌드하고 실행해 보실 수 있습니다.
+
+- **소스파일을 직접 컴파일 하는 방법**: TensorFlow를 위한 Swift를 커스터마이징 하거나
+  어떤 기여를 하고 싶으시다면, TensorFlow를 위한 Swift를 소스파일로부터 빌드하기 위한 [지침](https://github.com/apple/swift/tree/tensorflow#building-swift-for-tensorflow)으 따라 주시기 바랍니다.
+
+### 튜토리얼 목록 ![](https://www.tensorflow.org/images/colab_logo_32px.png)
+
+튜토리얼 | 마지막 업데이트 시간 |
+-------- | ------------ |
+[Swift 투어](https://colab.research.google.com/github/tensorflow/swift/blob/master/docs/site/tutorials/a_swift_tour.ipynb) | 2019 3월
+[Python과의 상호 운용](https://colab.research.google.com/github/tensorflow/swift/blob/master/docs/site/tutorials/python_interoperability.ipynb) | 2019 3월
+[사용자가 정의하는 Differentiation](https://colab.research.google.com/github/tensorflow/swift/blob/master/docs/site/tutorials/custom_differentiation.ipynb) | 2019 3월
+[모델 학습의 단계적 설명](https://colab.research.google.com/github/tensorflow/swift/blob/master/docs/site/tutorials/model_training_walkthrough.ipynb) | 2019 3월
+[가공되지 않은 TensorFlow 연산자들](https://colab.research.google.com/github/tensorflow/swift/blob/master/docs/site/tutorials/raw_tensorflow_operators.ipynb) | 2019 3월
+
+### 리소스 목록
+
+- [모델과 예제](https://github.com/tensorflow/swift-models)
+- [TensorFlow의 Swift API 레퍼런스](https://www.tensorflow.org/api_docs/swift/Structs/Tensor)
+- [릴리즈 노트](RELEASES.md)
+- [알려진 문제점들](KNOWN_ISSUES.md)
+- [자주 물어보는 질문들](FAQ.md)
+
+### 포럼
+
+부디 [swift@tensorflow.org 메일링 리스트](https://groups.google.com/a/tensorflow.org/d/forum/swift)에 참여하셔서, 
+가장 최신의 발표를 확인하시고, 도움도 받으시고, 여러분의 생각도 공유해 주시기 바랍니다.
+
+
+
+
+
+
+
+Swift for TensorFlow is a next-generation platform for machine learning, 
+incorporating the latest research across machine learning, compilers, 
+differentiable programming, systems design, and beyond. This is an 
+early-stage project: it is not feature-complete nor production-ready, 
+but it is ready for pioneers to try in projects, give feedback, and help shape the future!
+
+The Swift for TensorFlow project is currently focusing on 2 kinds of users:
+
+1. **Advanced ML researchers** who are limited by current ML frameworks. Swift
    for TensorFlow's advantages include a seamless integration with a modern
    general-purpose language, allowing for more dynamic and sophisticated models.
    Fast abstractions can be developed "in user-space" (as opposed to in C/C++
    aka "framework-space"), resulting in modular APIs that can be easily
    customized.
 
-2. **머신러닝 학습자** who are just getting started with machine learning. Thanks to
+2. **ML learners** who are just getting started with machine learning. Thanks to
    Swift's support for quality tooling (e.g. context-aware autocomplete), Swift
    for TensorFlow can be one of the most productive ways to get started learning
    the fundamentals of machine learning.
