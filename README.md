@@ -60,6 +60,64 @@ TensorFlow를 위한 Swift 프로젝트는 현재 두 종류의 사용자를 대
 부디 [swift@tensorflow.org 메일링 리스트](https://groups.google.com/a/tensorflow.org/d/forum/swift)에 참여하셔서, 
 가장 최신의 발표를 확인하시고, 도움도 받으시고, 여러분의 생각도 공유해 주시기 바랍니다.
 
+## 왜 TensorFlow를 위한 Swift 인가?
+
+TensorFlow를 위한 Swift는 머신러닝 모델을 개발하기 위한 새로운 방법 입니다. 이것은 
+[TensorFlow](https://www.tensorflow.org)의 강력함을 직접적으로
+[Swift 프로그래밍 언어](https://swift.org/about)에 통합시켜 줍니다.
+저희는 머신러닝의 패러다임이 매우 중요하기 때문에, **퍼스트-클래스 언어와 컴파일러의 지원** 이 마땅한 일이라고 믿고 있습니다.
+
+머신러닝의 기본적인 요소는 경사도에 기반한 최적화로, 파라메터들을 최적화 하기 위한 함수의 미분을 계산하는 것입니다.
+TensorFlow를 위한 Swift를 사용하면, [`gradient(of:)`](https://www.tensorflow.org/swift/api_docs/Functions#/s:10TensorFlow8gradient2of15CotangentVectorQzxcq_xc_tAA14DifferentiableRzSFR_AaFR_AdaFPQy_Rs_r0_lF) 와 같은 미분 연산자를 사용해서 손쉽게 함수를 미분하거나, 
+모델의 [`gradient(in:)`](https://www.tensorflow.org/swift/api_docs/Protocols/Differentiable#/s:10TensorFlow14DifferentiablePAAE8gradient2in15CotangentVectorQzqd__xXE_tSFRd__AaBRd__AfCQyd__Rsd__lF) 메소드를 호출하여 모델 전체를 미분하는 것이 가능 합니다.
+이러한 미분 APIs는 `Tensor`-에 연관된 개념- 에서는 사용이 불가능 하지만, `Float`, `Double`, SIMD 벡터, 여러분이 직접 만든 데이터 구조를 포함하여 [`Differentiable`](https://www.tensorflow.org/swift/api_docs/Protocols/Differentiable) 라는 프로토콜의 형식을 따르는 모든 데이터 타입들로 일반화 되어 있습니다.
+
+```swift
+// 사용자 정의 미분 가능한 데이터 타입.
+struct Model: Differentiable {
+    var w: Float
+    var b: Float
+    func applied(to input: Float) -> Float {
+        return w * input + b
+    }
+}
+
+// `Differentiable.gradient(at:in:)`를 사용하여 미분 하기.
+let model = Model(w: 4.0, b: 3.0)
+let (𝛁model, 𝛁input) = model.gradient(at: 2.0) { model, input in
+    model.applied(to: input)
+}
+
+print(𝛁model) // Model.AllDifferentiableVariables(w: 2.0, b: 1.0)
+print(𝛁input) // 4.0
+```
+
+Beyond derivatives, the Swift for TensorFlow project comes with a sophisticated toolchain
+to make users more productive. You can run Swift interactively in a Jupyter
+notebook, and get helpful autocomplete suggestions to help you explore the
+massive API surface of a modern deep learning library. You can [get started
+right in your browser in
+seconds](https://colab.research.google.com/github/tensorflow/swift/blob/master/docs/site/tutorials/model_training_walkthrough.ipynb)!
+
+Migrating to Swift for TensorFlow is really easy thanks to Swift's powerful
+Python integration. You can incrementally migrate your Python code over (or
+continue to use your favorite Python libraries), because you can easily call
+your favorite Python library with a familiar syntax:
+
+```swift
+import TensorFlow
+import Python
+
+let np = Python.import("numpy")
+
+let array = np.arange(100).reshape(10, 10)  // Create a 10x10 numpy array.
+let tensor = Tensor<Float>(numpy: array)  // Seamless integration!
+```
+
+
+
+
+
 
 
 
