@@ -73,7 +73,7 @@ TensorFlow를 위한 Swift를 사용하면, [`gradient(of:)`](https://www.tensor
 이러한 미분 APIs는 `Tensor`-에 연관된 개념- 에서는 사용이 불가능 하지만, `Float`, `Double`, SIMD 벡터, 여러분이 직접 만든 데이터 구조를 포함하여 [`Differentiable`](https://www.tensorflow.org/swift/api_docs/Protocols/Differentiable) 라는 프로토콜의 형식을 따르는 모든 데이터 타입들로 일반화 되어 있습니다.
 
 ```swift
-// 사용자 정의 미분 가능한 데이터 타입.
+// 사용자 정의 미분 가능한 데이터 타입 입니다..
 struct Model: Differentiable {
     var w: Float
     var b: Float
@@ -82,7 +82,7 @@ struct Model: Differentiable {
     }
 }
 
-// `Differentiable.gradient(at:in:)` 를 사용하여 미분 하기.
+// `Differentiable.gradient(at:in:)` 를 사용하여 미분이 가능합니다.
 let model = Model(w: 4.0, b: 3.0)
 let (𝛁model, 𝛁input) = model.gradient(at: 2.0) { model, input in
     model.applied(to: input)
@@ -92,17 +92,10 @@ print(𝛁model) // Model.AllDifferentiableVariables(w: 2.0, b: 1.0)
 print(𝛁input) // 4.0
 ```
 
-Beyond derivatives, the Swift for TensorFlow project comes with a sophisticated toolchain
-to make users more productive. You can run Swift interactively in a Jupyter
-notebook, and get helpful autocomplete suggestions to help you explore the
-massive API surface of a modern deep learning library. You can [get started
-right in your browser in
-seconds](https://colab.research.google.com/github/tensorflow/swift/blob/master/docs/site/tutorials/model_training_walkthrough.ipynb)!
+미분 이외에도, TensorFlow를 위한 Swift 프로젝트는 사용자를 더욱 생산적으로 만들어주는 섬세한 툴체인을 제공합니다.
+여러분은 Jupyter Notebook에서 Swift를 대화식으로 실행해 보고, 현대의 방대한 딥러닝 라이브러리의 API를 탐구하는데 도움이 되는 자동완성 기능의 사용이 가능합니다. [여러분의 브라우저에서 빠르게, 바로 시작하기](https://colab.research.google.com/github/tensorflow/swift/blob/master/docs/site/tutorials/model_training_walkthrough.ipynb)! 를 해 보실 수 있습니다.
 
-Migrating to Swift for TensorFlow is really easy thanks to Swift's powerful
-Python integration. You can incrementally migrate your Python code over (or
-continue to use your favorite Python libraries), because you can easily call
-your favorite Python library with a familiar syntax:
+Swift의 강력한 Python 통합 덕분에, TensorFlow를 위한 Swift로 옮겨오는 것은 정말로 쉽습니다. 여러분이 이미 익숙한 문법으로 쓰여진 Python 라이브러리를 손쉽게 호출할 수 있기 때문에, 점진적으로 Python 코드를 옮겨오는 것이 가능합니다 (또는 Python 라이브러리를 있는 그대로 계속 사용할 수도 있습니다):
 
 ```swift
 import TensorFlow
@@ -110,218 +103,77 @@ import Python
 
 let np = Python.import("numpy")
 
-let array = np.arange(100).reshape(10, 10)  // Create a 10x10 numpy array.
-let tensor = Tensor<Float>(numpy: array)  // Seamless integration!
+let array = np.arange(100).reshape(10, 10)  // 10x10 numpy 배열을 생성 합니다.
+let tensor = Tensor<Float>(numpy: array)  // 매끄러운 통합이 가능합니다!
 ```
+## 문서
 
+> 알아 두십시오: 프로젝트는 매우 빠르게 성장하고 있으므로, 이 문서의 몇 부분은
+> 최신의 내용과 비교하면 약간 뒤쳐져 있을 수 있습니다.
 
+### 오버뷰
 
-
-
-
-
-
-
-
-
-Swift for TensorFlow is a next-generation platform for machine learning, 
-incorporating the latest research across machine learning, compilers, 
-differentiable programming, systems design, and beyond. This is an 
-early-stage project: it is not feature-complete nor production-ready, 
-but it is ready for pioneers to try in projects, give feedback, and help shape the future!
-
-The Swift for TensorFlow project is currently focusing on 2 kinds of users:
-
-1. **Advanced ML researchers** who are limited by current ML frameworks. Swift
-   for TensorFlow's advantages include a seamless integration with a modern
-   general-purpose language, allowing for more dynamic and sophisticated models.
-   Fast abstractions can be developed "in user-space" (as opposed to in C/C++
-   aka "framework-space"), resulting in modular APIs that can be easily
-   customized.
-
-2. **ML learners** who are just getting started with machine learning. Thanks to
-   Swift's support for quality tooling (e.g. context-aware autocomplete), Swift
-   for TensorFlow can be one of the most productive ways to get started learning
-   the fundamentals of machine learning.
-
-## Getting started
-
-### Using Swift for TensorFlow
-
-- **Google Colaboratory**: The fastest way to get started is to try out Swift
-   for TensorFlow right in your browser. Just open up [a tutorial](#tutorials-), or start from a [blank
-   notebook](https://colab.research.google.com/github/tensorflow/swift/blob/master/notebooks/blank_swift.ipynb)!
-   Read more in our [usage guide](Usage.md).
-
-- **Install locally**: you can [download a pre-built Swift for TensorFlow
-   package](Installation.md). After installation, you can follow these
-   [step-by-step instructions](Usage.md) to build and execute a Swift script on
-   your computer.
-
-- **Compile from source**: If you'd like to customize Swift for TensorFlow or
-   contribute back, follow our [instructions](https://github.com/apple/swift/tree/tensorflow#building-swift-for-tensorflow)
-   on building Swift for TensorFlow from source.
-
-### Tutorials ![](https://www.tensorflow.org/images/colab_logo_32px.png)
-
-Tutorial | Last Updated |
--------- | ------------ |
-[A Swift Tour](https://colab.research.google.com/github/tensorflow/swift/blob/master/docs/site/tutorials/a_swift_tour.ipynb) | March 2019
-[Python Interoperability](https://colab.research.google.com/github/tensorflow/swift/blob/master/docs/site/tutorials/python_interoperability.ipynb) | March 2019
-[Custom Differentiation](https://colab.research.google.com/github/tensorflow/swift/blob/master/docs/site/tutorials/custom_differentiation.ipynb) | March 2019
-[Model Training Walkthrough](https://colab.research.google.com/github/tensorflow/swift/blob/master/docs/site/tutorials/model_training_walkthrough.ipynb) | March 2019
-[Raw TensorFlow Operators](https://colab.research.google.com/github/tensorflow/swift/blob/master/docs/site/tutorials/raw_tensorflow_operators.ipynb) | March 2019
-
-### Resources
-
-- [Models and Examples](https://github.com/tensorflow/swift-models)
-- [TensorFlow Swift API Reference](https://www.tensorflow.org/api_docs/swift/Structs/Tensor)
-- [Release Notes](RELEASES.md)
-- [Known Issues](KNOWN_ISSUES.md)
-- [Frequently Asked Questions](FAQ.md)
-
-### Forums
-
-Please join the
-[swift@tensorflow.org mailing list](https://groups.google.com/a/tensorflow.org/d/forum/swift)
-to hear the latest announcements, get help, and share your thoughts!
-
-## Why Swift for TensorFlow?
-
-Swift for TensorFlow is a new way to develop machine learning models. It
-gives you the power of
-[TensorFlow](https://www.tensorflow.org) directly integrated into the
-[Swift programming language](https://swift.org/about). We believe that
-machine learning paradigms are so important that they deserve
-**first-class language and compiler support**.
-
-A fundamental primitive in machine learning is gradient-based optimization:
-computing function derivatives to optimize parameters. With Swift for
-TensorFlow, you can easily differentiate functions using differential
-operators like [`gradient(of:)`](https://www.tensorflow.org/swift/api_docs/Functions#/s:10TensorFlow8gradient2of15CotangentVectorQzxcq_xc_tAA14DifferentiableRzSFR_AaFR_AdaFPQy_Rs_r0_lF), or differentiate with respect to an entire
-model by calling method [`gradient(in:)`](https://www.tensorflow.org/swift/api_docs/Protocols/Differentiable#/s:10TensorFlow14DifferentiablePAAE8gradient2in15CotangentVectorQzqd__xXE_tSFRd__AaBRd__AfCQyd__Rsd__lF). These differentiation APIs
-are not just available for `Tensor`-related concepts—they are
-generalized for all types that conform to the [`Differentiable`](https://www.tensorflow.org/swift/api_docs/Protocols/Differentiable)
-protocol, including `Float`, `Double`, SIMD vectors, and your own data
-structures.
-
-```swift
-// Custom differentiable type.
-struct Model: Differentiable {
-    var w: Float
-    var b: Float
-    func applied(to input: Float) -> Float {
-        return w * input + b
-    }
-}
-
-// Differentiate using `Differentiable.gradient(at:in:)`.
-let model = Model(w: 4.0, b: 3.0)
-let (𝛁model, 𝛁input) = model.gradient(at: 2.0) { model, input in
-    model.applied(to: input)
-}
-
-print(𝛁model) // Model.AllDifferentiableVariables(w: 2.0, b: 1.0)
-print(𝛁input) // 4.0
-```
-
-Beyond derivatives, the Swift for TensorFlow project comes with a sophisticated toolchain
-to make users more productive. You can run Swift interactively in a Jupyter
-notebook, and get helpful autocomplete suggestions to help you explore the
-massive API surface of a modern deep learning library. You can [get started
-right in your browser in
-seconds](https://colab.research.google.com/github/tensorflow/swift/blob/master/docs/site/tutorials/model_training_walkthrough.ipynb)!
-
-Migrating to Swift for TensorFlow is really easy thanks to Swift's powerful
-Python integration. You can incrementally migrate your Python code over (or
-continue to use your favorite Python libraries), because you can easily call
-your favorite Python library with a familiar syntax:
-
-```swift
-import TensorFlow
-import Python
-
-let np = Python.import("numpy")
-
-let array = np.arange(100).reshape(10, 10)  // Create a 10x10 numpy array.
-let tensor = Tensor<Float>(numpy: array)  // Seamless integration!
-```
-
-## Documentation
-
-> Beware: the project is moving very quickly, and thus some of these documents
-> are slightly out of date as compared to the current state-of-the-art.
-
-### Overview
-
-Document | Last Updated | Status |
+문서 | 마지막 업데이트 날짜 | 상태 |
 -------- | ------------ | ------ |
-[Why *Swift* for TensorFlow?](docs/WhySwiftForTensorFlow.md) | April 2018 | Current
-[Swift for TensorFlow Design Overview](docs/DesignOverview.md) | April 2018 | Outdated
+[왜 TensorFlow를 위한 *Swift* 인가?](docs/WhySwiftForTensorFlow.md) | 2018년 4월 | 최신
+[TensorFlow를 위한 Swift에 대한 디자인 오버뷰](docs/DesignOverview.md) | 2018년 4월 | 구식
 
-### Technology deep dive
+### 기술의 깊은 이해
 
-The Swift for TensorFlow project builds on top of powerful theoretical
-foundations. For insight into some of the underlying technologies, check
-out the following documentation.
+TensorFlow를 위한 Swift 프로젝트는 강력한 이론적 기초를 기반으로 만들어 졌습니다.
+그 기반이 되는 몇 가지 기술들에 대한 이해를 위해서, 아래의 문서를 확인해 보시기 바랍니다.
 
-Document | Last Updated | Status |
+문서 | 마지막 업데이트 날짜 | 상태 |
 -------- | ------------ | ------ |
-[Swift Differentiable Programming Design Overview](https://docs.google.com/document/d/1bPepWLfRQa6CtXqKA8CDQ87uZHixNav-TFjLSisuKag/edit?usp=sharing) | June 2019 | Current
-[Differentiable Types](docs/DifferentiableTypes.md) | March 2019 | Outdated
-[Differentiable Functions and Differentiation APIs](docs/DifferentiableFunctions.md) | March 2019 | Outdated
-[Dynamic Property Iteration using Key Paths](docs/DynamicPropertyIteration.md) | March 2019 | Current
-[Hierarchical Parameter Iteration and Optimization](docs/ParameterOptimization.md) | March 2019 | Current
-[First-Class Automatic Differentiation in Swift: A Manifesto](https://gist.github.com/rxwei/30ba75ce092ab3b0dce4bde1fc2c9f1d) | October 2018 | Outdated
-[Automatic Differentiation Whitepaper](docs/AutomaticDifferentiation.md) | April 2018 | Outdated
-[Python Interoperability](docs/PythonInteroperability.md) | April 2018 | Current
-[Graph Program Extraction](docs/GraphProgramExtraction.md) | April 2018 | Outdated
+[Swift의 Differentiable 프로그래밍 디자인 오버뷰](https://docs.google.com/document/d/1bPepWLfRQa6CtXqKA8CDQ87uZHixNav-TFjLSisuKag/edit?usp=sharing) | 2019년 6월 | 최신
+[미분 가능한 데이터 타입](docs/DifferentiableTypes.md) | 2019년 3월 | 구식
+[미분 가능한 함수와 APIs](docs/DifferentiableFunctions.md) | 2019년 3월 | 구식
+[Key Paths를 이용한 동적 속성 순회](docs/DynamicPropertyIteration.md) | 2019년 3월 | 최신
+[계층적 파라메터 순회 및 최적화](docs/ParameterOptimization.md) | 2019년 3월 | 최신
+[Swift에서의 프스트-클래스 자동 미분: A Manifesto](https://gist.github.com/rxwei/30ba75ce092ab3b0dce4bde1fc2c9f1d) | 2018년 10월 | 구식
+[자동 미분 백서](docs/AutomaticDifferentiation.md) | 2018년 4월 | 구식
+[Python 과의 상호 운용](docs/PythonInteroperability.md) | 2018년 4월 | 최신
+[그래프 프로그램 추출](docs/GraphProgramExtraction.md) | 2018년 4월 | 구식
 
-## Source code
+## 소스 코드
 
-Compiler and standard library development happens on the `tensorflow` branch of
-the [apple/swift](https://github.com/apple/swift/tree/tensorflow) repository.
+컴파일러 및 표준 라이브러리의 개발은 [apple/swift](https://github.com/apple/swift/tree/tensorflow) 저장소의 `tensorflow` 브랜치에서 진행 중 입니다.
 
-Additional code repositories that make up the core of the project include:
+프로젝트의 핵심을 담고 있는 추가적인 코드 저장소로는 다음이 포함 됩니다.
+- [LLDB에서 갈라져나온 Swift](http://github.com/apple/swift-lldb/tree/tensorflow):
+   디버거 및 REPL에 관련된 저장소 입니다.
+ - [딥러닝 라이브러리](https://github.com/tensorflow/swift-apis): Keras 사용자에게 친숙한 고수준 API에 관련된 저장소 입니다.
 
- - [Swift fork of LLDB](http://github.com/apple/swift-lldb/tree/tensorflow):
-   debugger and REPL support.
- - [Deep learning library](https://github.com/tensorflow/swift-apis): high-level
-   API familiar to Keras users.
+> TensorFlow를 위한 장기적으로 Swift는 공식 Swift 언어의 갈래로 떨어져나오길 
+> 의도하지 *않습니다*. 언어의 추가 요소는 Swift가 나아가는 방향성과 들어맞기 위해
+> 디자인 되었으며, 그 방향은 [Swift의 진화](https://github.com/apple/swift-evolution) 프로세스에서 확인해 보실 수 있습니다.
 
-> Swift for TensorFlow is **not** intended to remain a long-term fork of the official
-> Swift language. Language additions are designed to fit with the direction of
-> Swift and will go through the [Swift
-> Evolution](https://github.com/apple/swift-evolution) process.
+### Jupyter Notebook 지원
 
-### Jupyter Notebook support
+Swift를 위한 [Jupyter Notebook](http://jupyter.org/) 지원은 [google/swift-jupyter](https://github.com/google/swift-jupyter) 에서 현재 개발 중 입니다.
 
-[Jupyter Notebook](http://jupyter.org/) support for Swift is under development at
-[google/swift-jupyter](https://github.com/google/swift-jupyter).
+## 커뮤니티
 
-## Community
+TensorFlow를 위한 Swift에 대한 논의는 를 위한 [swift@tensorflow.org mailing list](https://groups.google.com/a/tensorflow.org/d/forum/swift)를 통해서 이뤄지고 있습니다.
 
-Swift for TensorFlow discussions happen on the
-[swift@tensorflow.org mailing list](https://groups.google.com/a/tensorflow.org/d/forum/swift).
+### 버그 리포트 및 추가적인 피처에 대한 요청
 
-### Bugs reports and feature requests
+이슈를 리포트 하기 전에, [자주 물어보는 질문](FAQ.md)을 확인해 보시고 
+여쭤보려고 하시는 질문의 답이 이미 있는지 확인해 보시기 바랍니다.
 
-Before reporting an issue, please check the [Frequently Asked Questions](FAQ.md)
-to see if your question has already been addressed.
+일반적인 사용법 또는 추가 피쳐에 대한 요청에 대해서는 [메일링 리스트](mailto:swift@tensorflow.org)로 이메일을 보내거나
+[JIRA issue tracker](https://bugs.swift.org/projects/TF/issues/?filter=allopenissues) 에서 관련된 이슈를 검색해 보시기 바랍니다.
 
-For questions about general use or feature requests, please send an email to
-the [mailing list](mailto:swift@tensorflow.org) or search for relevant issues
-in the [JIRA issue tracker](https://bugs.swift.org/projects/TF/issues/?filter=allopenissues).
+대부분의 경우에서, 핵심 팀의 개발 또한 [JIRA](https://bugs.swift.org/secure/RapidBoard.jspa?rapidView=17&projectKey=TF&view=planning) 에서 추적되고 있음을 알려 드립니다.
 
-For the most part, the core team's development is also tracked in
-[JIRA](https://bugs.swift.org/secure/RapidBoard.jspa?rapidView=17&projectKey=TF&view=planning).
+### 기여
 
-### Contributing
+여러분 모두로부터의 기여를 환영합니다. 이에 대한 더 많은 정보 및 시작하는 방법은 [contributing
+guide](Contributing.md)를 확인해 보시기 바랍니다.
 
-We welcome contributions from everyone. Read the [contributing
-guide](Contributing.md) for information on how to get started.
+### 행동 규칙
 
-### Code of conduct
+
 
 In the interest of fostering an open and welcoming environment, we as
 contributors and maintainers pledge to making participation in our project and
